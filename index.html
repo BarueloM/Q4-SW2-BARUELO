@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SW2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background: #cefad0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .round-container {
+            border-radius: 15px;
+            border: 2px solid #000;
+            padding: 20px;
+            background-color: #fff;
+            width: fit-content;
+        }
+        .btn-group button {
+            margin-right: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="round-container">
+            <img src="https://cdn3.emoji.gg/emojis/3793-bmo-excited.png" alt="BMO" width="200" height="200">
+            <h1>Hi, my name is BMO!</h1>
+            <h1>Test my Math Skills!</h1>
+            <div class="col-md-9 text">
+                <h2>Enter values for x and y:</h2>
+                <label for="x">x:</label>
+                <input type="text" id="x"><br><br>
+                <label for="y">y:</label>
+                <input type="text" id="y"><br><br>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="calculateProduct()">Calculate Product</button>
+                    <button type="button" class="btn btn-success" onclick="calculatePower()">Calculate Power</button>
+                    <button type="button" class="btn btn-info" onclick="calculateRemainder()">Calculate Remainder</button>
+                    <button type="button" class="btn btn-warning" onclick="calculateEquality()">Check Equality</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculateProduct() {
+            let x = parseFloat(document.getElementById("x").value);
+            let y = parseFloat(document.getElementById("y").value);
+
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numerical values for x and y.");
+                return;
+            }
+
+            let product = (x * y).toFixed(3);
+            alert("Product of x and y: " + product);
+        }
+
+        function calculatePower() {
+            let x = parseFloat(document.getElementById("x").value);
+            let y = parseFloat(document.getElementById("y").value);
+
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numerical values for x and y.");
+                return;
+            }
+
+            let power = Math.pow(x, y).toFixed(3);
+            alert("x raised to the power of y: " + power);
+        }
+
+        function calculateRemainder() {
+            let x = parseFloat(document.getElementById("x").value);
+            let y = parseFloat(document.getElementById("y").value);
+
+            if (isNaN(x) || isNaN(y) || y === 0) {
+                alert("Please enter valid numerical values for x and y, and y should not be zero.");
+                return;
+            }
+
+            let remainder = (x / y).toFixed(3);
+            alert("Remainder of x divided by y: " + remainder);
+        }
+
+        function calculateEquality() {
+            let x = parseFloat(document.getElementById("x").value);
+            let y = parseFloat(document.getElementById("y").value);
+
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numerical values for x and y.");
+                return;
+            }
+
+            let isEqual = x === y;
+            alert("Is x equal to y?: " + (isEqual ? "Yes" : "No"));
+        }
+    </script>
+</body>
+</html>
